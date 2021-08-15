@@ -1,0 +1,10 @@
+class Main
+{
+  function void main() {
+    var JumpingFrogGame game;
+    let game = JumpingFrogGame.new();
+    do game.run();
+    do game.dispose();
+    return;
+  }
+}

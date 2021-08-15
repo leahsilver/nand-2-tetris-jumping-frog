@@ -1,0 +1,755 @@
+function JumpingFrog.new 0
+push constant 10
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 160
+pop this 1
+push constant 16
+pop this 2
+push constant 16
+pop this 3
+push constant 1
+pop this 4
+push pointer 0
+call JumpingFrog.buildUpArray 1
+pop temp 0
+push pointer 0
+call JumpingFrog.buildMidArray 1
+pop temp 0
+push pointer 0
+call JumpingFrog.buildDownArray 1
+pop temp 0
+push pointer 0
+call JumpingFrog.draw 1
+pop temp 0
+push pointer 0
+return
+function JumpingFrog.moveUp 0
+push argument 0
+pop pointer 0
+push pointer 0
+call JumpingFrog.erase 1
+pop temp 0
+push this 0
+push constant 30
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push constant 30
+sub
+pop this 0
+goto IF_END0
+label IF_FALSE0
+push constant 0
+pop this 0
+label IF_END0
+push constant 0
+return
+function JumpingFrog.moveDown 0
+push argument 0
+pop pointer 0
+push pointer 0
+call JumpingFrog.erase 1
+pop temp 0
+push this 0
+push constant 255
+push this 3
+sub
+push constant 5
+sub
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push constant 5
+add
+pop this 0
+goto IF_END0
+label IF_FALSE0
+push constant 255
+push this 3
+sub
+pop this 0
+label IF_END0
+push constant 0
+return
+function JumpingFrog.erase 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 1
+push this 0
+push this 1
+push this 2
+add
+push this 0
+push this 3
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function JumpingFrog.buildUpArray 0
+push argument 0
+pop pointer 0
+push constant 16
+call Array.new 1
+pop this 5
+push constant 0
+push this 5
+add
+push constant 1584
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 5
+add
+push constant 4092
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 5
+add
+push constant 4098
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 5
+add
+push constant 4098
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push this 5
+add
+push constant 3060
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push this 5
+add
+push constant 1032
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push this 5
+add
+push constant 1008
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push this 5
+add
+push constant 3084
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 8
+push this 5
+add
+push constant 3612
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 9
+push this 5
+add
+push constant 2580
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 10
+push this 5
+add
+push constant 2868
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 11
+push this 5
+add
+push constant 3368
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 12
+push this 5
+add
+push constant 1560
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 13
+push this 5
+add
+push constant 3060
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 14
+push this 5
+add
+push constant 3084
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 15
+push this 5
+add
+push constant 2052
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function JumpingFrog.buildMidArray 0
+push argument 0
+pop pointer 0
+push constant 16
+call Array.new 1
+pop this 6
+push constant 0
+push this 6
+add
+push constant 1584
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 6
+add
+push constant 4092
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 6
+add
+push constant 4098
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 6
+add
+push constant 4098
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push this 6
+add
+push constant 3060
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push this 6
+add
+push constant 1032
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push this 6
+add
+push constant 1008
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push this 6
+add
+push constant 3084
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 8
+push this 6
+add
+push constant 3612
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 9
+push this 6
+add
+push constant 14871
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 10
+push this 6
+add
+push constant 11061
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 11
+push this 6
+add
+push constant 11561
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 12
+push this 6
+add
+push constant 4626
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 13
+push this 6
+add
+push constant 3564
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 14
+push this 6
+add
+push constant 15375
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 15
+push this 6
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function JumpingFrog.buildDownArray 0
+push argument 0
+pop pointer 0
+push constant 16
+call Array.new 1
+pop this 7
+push constant 0
+push this 7
+add
+push constant 1584
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 7
+add
+push constant 4092
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 7
+add
+push constant 4098
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 7
+add
+push constant 4098
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push this 7
+add
+push constant 3060
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push this 7
+add
+push constant 1032
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push this 7
+add
+push constant 1008
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push this 7
+add
+push constant 3084
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 8
+push this 7
+add
+push constant 3612
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 9
+push this 7
+add
+push constant 2580
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 10
+push this 7
+add
+push constant 2868
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 11
+push this 7
+add
+push constant 3368
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 12
+push this 7
+add
+push constant 1560
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 13
+push this 7
+add
+push constant 3060
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 14
+push this 7
+add
+push constant 7182
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 15
+push this 7
+add
+push constant 12291
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function JumpingFrog.draw 0
+push argument 0
+pop pointer 0
+push pointer 0
+call JumpingFrog.getFrogVector 1
+pop this 8
+push constant 16384
+push this 0
+push constant 32
+call Math.multiply 2
+add
+push this 1
+push constant 16
+call Math.divide 2
+add
+pop this 9
+push this 9
+push constant 0
+add
+push constant 0
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 32
+add
+push constant 1
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 64
+add
+push constant 2
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 96
+add
+push constant 3
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 128
+add
+push constant 4
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 160
+add
+push constant 5
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 192
+add
+push constant 6
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 224
+add
+push constant 7
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 256
+add
+push constant 8
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 288
+add
+push constant 9
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 320
+add
+push constant 10
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 352
+add
+push constant 11
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 384
+add
+push constant 12
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 416
+add
+push constant 13
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 448
+add
+push constant 14
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push this 9
+push constant 480
+add
+push constant 15
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function JumpingFrog.cycleLeapsState 0
+push argument 0
+pop pointer 0
+push this 4
+push constant 3
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 1
+pop this 4
+goto IF_END0
+label IF_FALSE0
+push this 4
+push constant 1
+add
+pop this 4
+label IF_END0
+push constant 0
+return
+function JumpingFrog.getFrogVector 0
+push argument 0
+pop pointer 0
+push this 4
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 5
+return
+label IF_FALSE0
+push this 4
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 6
+return
+label IF_FALSE1
+push this 7
+return
+function JumpingFrog.getXOffset 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function JumpingFrog.getYOffset 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function JumpingFrog.getSizeX 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function JumpingFrog.getSizeY 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function JumpingFrog.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

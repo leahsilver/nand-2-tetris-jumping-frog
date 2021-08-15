@@ -1,0 +1,198 @@
+function Pipe.new 0
+push constant 9
+call Memory.alloc 1
+pop pointer 0
+push constant 11
+pop this 0
+push constant 1
+pop this 2
+push this 2
+pop this 1
+push constant 509
+pop this 3
+push constant 512
+pop this 7
+push constant 256
+pop this 8
+push constant 65
+pop this 4
+push pointer 0
+push argument 0
+call Pipe.calculateGapTop 2
+pop this 5
+push this 5
+push this 4
+add
+pop this 6
+push pointer 0
+return
+function Pipe.calculateGapTop 1
+push argument 0
+pop pointer 0
+push argument 1
+push argument 1
+push constant 6
+call Math.divide 2
+push constant 6
+call Math.multiply 2
+sub
+pop local 0
+push local 0
+push constant 1
+add
+push constant 30
+call Math.multiply 2
+return
+function Pipe.shift 0
+push argument 0
+pop pointer 0
+push this 3
+push this 7
+push this 0
+sub
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 1
+add
+push this 2
+sub
+push constant 0
+push this 3
+push this 1
+add
+push this 5
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 1
+add
+push this 2
+sub
+push this 6
+push this 3
+push this 1
+add
+push constant 255
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Pipe.moveLeft 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Pipe.shift 1
+pop temp 0
+push this 1
+push this 0
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 3
+push constant 0
+gt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 1
+push this 2
+add
+pop this 1
+label IF_FALSE1
+label IF_FALSE0
+push this 3
+push constant 1
+gt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 3
+push this 2
+sub
+pop this 3
+goto IF_END2
+label IF_FALSE2
+push constant 0
+pop this 3
+push this 1
+push this 2
+sub
+pop this 1
+label IF_END2
+push constant 0
+return
+function Pipe.getWidthCurrent 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Pipe.getWidthIncrement 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function Pipe.getXOffset 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Pipe.getGapTop 0
+push argument 0
+pop pointer 0
+push this 5
+return
+function Pipe.getGapBottom 0
+push argument 0
+pop pointer 0
+push this 6
+return
+function Pipe.draw 0
+push argument 0
+pop pointer 0
+push this 3
+push this 2
+sub
+push constant 0
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 2
+sub
+push constant 0
+push this 3
+push this 5
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 2
+sub
+push this 6
+push this 3
+push constant 255
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Pipe.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

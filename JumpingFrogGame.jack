@@ -1,0 +1,432 @@
+class JumpingFrogGame
+{
+  /*
+  Models the Jumping Frog game at a high level by creating in-game objects,
+  handling user inputs, and moving through game states.
+  */
+
+  field JumpingFrog frog;                  // JumpingFrog object.
+  field int frog_leap_state_count;        // Track frog leap image.
+  field int frog_fall_count;              // Track frog's downward movement.
+  field int frog_height_default;          // Default Frog starting height.
+  field Array pipes;                      // Visible pipes on screen.
+  field int count_pipes;                  // Number of pipes visible.
+  field int dist_between_pipes;           // Interval between successive pipes.
+  field int dist_after_last_pipe;         // Amount of space following last created pipe.
+  field int jumps;                        // Number of jumps made in game.
+  field int lives;    
+  field int total_pipes;                  // Number of pipes created.
+  field Pipe collisonPipe;  
+  field int memAddress;
+  /*
+  Jumping Frog Game constructor.
+  */
+  constructor JumpingFrogGame new() {
+    let frog_height_default = 150;
+    let pipes = Array.new(10);
+    let count_pipes = 0;
+    let dist_between_pipes = 100;
+    let dist_after_last_pipe = 0;
+    let jumps = 1;
+    let total_pipes = 0;
+    let lives = 3;
+    return this;
+  }
+
+  /*
+  Display instructions on the screen.
+  */
+  method void displayInstructions()
+  {
+    do Output.moveCursor(0, 20);
+    do Output.printString("Welcome to Jumping Frog game.");
+    do Output.println();
+    do Output.moveCursor(1, 20);
+    do Output.printString("To jump, press the space bar.");
+    do Output.println();
+    do Output.moveCursor(2, 20);
+    do Output.printString("To win, dont clash into pipes.");
+    do Output.println();
+    do Output.moveCursor(3, 20);
+    do Output.printString("you have three lives.");
+    do Output.println();
+    do Output.moveCursor(4, 20);
+    do Output.printString("To quit, press the 'q' key.");
+    
+    return;
+  }
+   method void erase(int i, int j)
+  {
+    do Screen.setColor(false);
+    do Screen.drawRectangle(i, j, i + 16, j + 16);
+
+    return;
+  }
+  /*
+  Main loop for running game.
+  */
+  method void run() {
+     var char key;
+     var char last_key;
+     var int i;
+     do initializeGameState();
+     do waitForGameToStart();
+     let last_key = 32;
+     while (~(key = 81)) { // 'q' key
+        
+       let i=0;
+        while (i<lives){
+            do Screen.setColor(true);
+            do draw_smiley(191-(2*i));
+         
+            let i=i+1;
+        }
+        // Determine if new jump has occurred.
+        if ((key = 32) & ~(last_key = 32)) {      // space bar
+          let jumps = jumps + 1;
+          do frog.moveUp();
+        } else {
+          do updateFrogFallState();
+          do updateFrogLeapState();
+        }
+
+        // If collision found, go to score and reset state.
+        if (findCollision()) {
+            if (~(lives = 1)){
+               do erase(525-(lives*31), 4);
+               do Sys.wait(1000);
+               let lives = lives - 1;
+            }
+             else{
+                  do displayScore();
+                  do Sys.wait(3000);
+                  do initializeGameState();
+                  do waitForGameToStart();
+             }
+        }
+
+        // Draw updated game to screen.
+        do draw();
+
+        // Check key pressed.
+        let last_key = key;
+        let key = Keyboard.keyPressed();
+        do Sys.wait(10);
+    }
+
+    return;
+  }
+
+  /*
+  Animate frog before game begins.
+  */
+  method void waitForGameToStart()
+  {
+    var char key;
+    let key = Keyboard.keyPressed();
+
+    while (key = 0) {
+       do Sys.wait(10);
+       let key = Keyboard.keyPressed();
+       do frog.draw();
+       do updateFrogLeapState();
+    }
+
+    return;
+  }
+
+  /*
+  Set all fields to pre-game state.
+  */
+  method void initializeGameState()
+  {
+    var Pipe pipe;
+    var int i;
+    let i = 0;
+    let lives = 3;
+    do whiteout();
+    do displayInstructions();
+
+    let frog = JumpingFrog.new(frog_height_default);
+
+    // Remove existing pipes.
+    while (i < count_pipes) {
+      let pipe = pipes[i];
+      do pipe.dispose();
+      let i = i + 1;
+    }
+
+    let count_pipes = 0;
+    let total_pipes = 0;
+    let frog_leap_state_count = 1;
+    let frog_fall_count = 1;
+    let dist_after_last_pipe = dist_between_pipes;
+
+    return;
+  }
+
+  /*
+  White out screen.
+  */
+  method void whiteout()
+  {
+    do Screen.setColor(false);
+    do Screen.drawRectangle(0, 0, 511, 255);
+   
+    return;
+  }
+
+  /*
+  Display final score to screen.
+  */
+  method void displayScore()
+  {
+    var int score;
+    let score = 0;
+
+    let score = calculateScore();
+     do Screen.setColor(true);
+    do Screen.drawRectangle(140, 80, 360, 190);
+    do Output.moveCursor(11, 23);
+    do Output.printString("   game over   ");
+    do Output.println();
+     do Output.moveCursor(12, 23);
+
+    do Output.printString("your score is "); do Output.printInt(score);
+
+
+    return;
+  }
+
+  /*
+  Update frog's rising/falling status.
+  */
+  method void updateFrogFallState()
+  {
+    // Only move frog after every five 'draw' cycles to prevent dropping too fast.
+    if (frog_fall_count = 5) {
+      do frog.moveDown();
+      let frog_fall_count = 1;
+    } else {
+      let frog_fall_count = frog_fall_count + 1;
+    }
+
+    return;
+  }
+
+  /*
+  Update frog leap display state.
+  */
+  method void updateFrogLeapState()
+  {
+    // Only cycle leaps after every five 'draw' cycles to prevent changing too fast.
+    if (frog_leap_state_count = 5) {
+      do frog.cycleLeapsState();
+      let frog_leap_state_count = 1;
+    } else {
+      let frog_leap_state_count = frog_leap_state_count + 1;
+    }
+
+    return;
+  }
+
+  /*
+  Draw onscreen objects and update their coordinates.
+  */
+  method void draw()
+  {
+    var Pipe pipe;
+
+    // Moves pipes left.
+    do shiftPipesLeft();
+    // Remove first pipe if no longer on screen.
+    do disposeUnseenPipe();
+    // Create new pipe object if existing last pipe has moved far enough.
+    do createNewPipe();
+
+    do frog.draw();
+
+    return;
+  }
+
+  /*
+  Draw pipes and shift their coordinates to the left.
+  */
+  method void shiftPipesLeft()
+  {
+    var Pipe pipe;
+    var int i;
+
+    let i = 0;
+    while (i < count_pipes) {
+      let pipe = pipes[i];
+      do pipe.draw();
+      do pipe.moveLeft();
+      let i = i + 1;
+    }
+
+    return;
+  }
+
+  /*
+  Remove Pipe object once it has exited the screen.
+  */
+  method void disposeUnseenPipe()
+  {
+    var int i;
+    var Pipe pipe;
+
+    if (count_pipes = 0) {
+      return;
+    }
+
+    let pipe = pipes[0];
+
+    if (pipe.getWidthCurrent() < 1) {
+      do pipe.dispose();
+      let count_pipes = count_pipes - 1;
+      let i = 0;
+      while (i < count_pipes) {
+        let pipes[i] = pipes[i+1];
+        let i = i + 1;
+      }
+    }
+
+    return;
+  }
+
+  /*
+  Create new pipe to go onscreen.
+  */
+  method void createNewPipe()
+  {
+    var Pipe pipe;
+
+    if (dist_after_last_pipe = dist_between_pipes) {
+      let pipes[count_pipes] = Pipe.new(jumps);
+      let count_pipes = count_pipes + 1;
+      let total_pipes = total_pipes + 1;
+      let dist_after_last_pipe = 0;
+    } else {
+      let pipe = pipes[0];
+      let dist_after_last_pipe = dist_after_last_pipe + pipe.getWidthIncrement();
+    }
+
+    return;
+  }
+
+  /*
+  Calculate final score.
+  */
+  method int calculateScore()
+  {
+    var Pipe pipe;
+    var int i;
+    var int score;
+
+    let score = total_pipes;
+    let i = 0;
+   while (i < count_pipes) {
+      let pipe = pipes[i];
+      if (frog.getXOffset() < (pipe.getXOffset() + pipe.getWidthCurrent() + 1)) {
+        let score = score - 1;
+      }
+      let i = i + 1;
+    }
+
+ 
+    return score-2;
+    
+  }
+
+  /*
+  Determine if there been a collision between frog and pipes.
+  */
+  method boolean findCollision()
+  {
+    var Pipe pipe;
+    
+    var int i;
+    let i = 0;
+    while (i < count_pipes) {
+      let pipe = pipes[i];
+      if (collides(pipe) & ~(collisonPipe=pipe)) {
+        let collisonPipe=pipe;
+        return true;
+      }
+     
+      let i = i + 1;
+    }
+    return false;
+  }
+
+  /*
+  Has Frog collided with specific pipe.
+  */
+  method boolean collides(Pipe pipe)
+  {
+
+    // Is frog still in front of pipe.
+    if (pipe.getXOffset() > (frog.getXOffset() + frog.getSizeX() + 1)) {
+      return false;
+    }
+
+    // Has frog passed pipe.
+    if ((pipe.getXOffset() + pipe.getWidthCurrent()) < frog.getXOffset()) {
+      return false;
+    }
+
+    // Has frog hit top section of pipe.
+    if (pipe.getGapTop() > frog.getYOffset()) {
+      return true;
+    }
+
+    // Has frog hit bottom section of pipe.
+    if (pipe.getGapBottom() < (frog.getYOffset() + frog.getSizeY())) {
+      return true;
+    }
+
+    return false;
+  }
+
+  /*
+  Dispose of JumpingFrogGame object and objects created as properties.
+  */
+  method void dispose() {
+    var Pipe pipe;
+    var int i;
+    let i = 0;
+    while (i < count_pipes) {
+     let pipe = pipes[i];
+     do pipe.dispose();
+     let i = i + 1;
+    }
+
+    do frog.dispose();
+
+    do Memory.deAlloc(this);
+
+    return;
+  }
+  method void draw_smiley(int location) {
+	let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, 0);
+	do Memory.poke(memAddress+32, 4080);
+	do Memory.poke(memAddress+64, 4104);
+	do Memory.poke(memAddress+96, 8196);
+	do Memory.poke(memAddress+128, 16386);
+	do Memory.poke(memAddress+160, -32767);
+	do Memory.poke(memAddress+192, -30703);
+	do Memory.poke(memAddress+224, -30703);
+	do Memory.poke(memAddress+256, -30703);
+	do Memory.poke(memAddress+288, -30319);
+	do Memory.poke(memAddress+320, -32767);
+	do Memory.poke(memAddress+352, -31711);
+	do Memory.poke(memAddress+384, 16962);
+	do Memory.poke(memAddress+416, 8580);
+	do Memory.poke(memAddress+448, 4104);
+	do Memory.poke(memAddress+480, 4080);
+	return;
+}
+
+}

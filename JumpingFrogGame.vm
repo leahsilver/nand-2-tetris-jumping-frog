@@ -1,0 +1,1181 @@
+function JumpingFrogGame.new 0
+push constant 13
+call Memory.alloc 1
+pop pointer 0
+push constant 150
+pop this 3
+push constant 10
+call Array.new 1
+pop this 4
+push constant 0
+pop this 5
+push constant 100
+pop this 6
+push constant 0
+pop this 7
+push constant 1
+pop this 8
+push constant 0
+pop this 10
+push constant 3
+pop this 9
+push pointer 0
+return
+function JumpingFrogGame.displayInstructions 0
+push argument 0
+pop pointer 0
+push constant 0
+push constant 20
+call Output.moveCursor 2
+pop temp 0
+push constant 29
+call String.new 1
+push constant 87
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 74
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 70
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 46
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 1
+push constant 20
+call Output.moveCursor 2
+pop temp 0
+push constant 29
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 106
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 44
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 98
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 46
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 2
+push constant 20
+call Output.moveCursor 2
+pop temp 0
+push constant 30
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 119
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 44
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 100
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 46
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 3
+push constant 20
+call Output.moveCursor 2
+pop temp 0
+push constant 21
+call String.new 1
+push constant 121
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 46
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 4
+push constant 20
+call Output.moveCursor 2
+pop temp 0
+push constant 27
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 113
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 44
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 39
+call String.appendChar 2
+push constant 113
+call String.appendChar 2
+push constant 39
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 107
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 121
+call String.appendChar 2
+push constant 46
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+return
+function JumpingFrogGame.erase 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push argument 1
+push argument 2
+push argument 1
+push constant 16
+add
+push argument 2
+push constant 16
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function JumpingFrogGame.run 3
+push argument 0
+pop pointer 0
+push pointer 0
+call JumpingFrogGame.initializeGameState 1
+pop temp 0
+push pointer 0
+call JumpingFrogGame.waitForGameToStart 1
+pop temp 0
+push constant 32
+pop local 1
+label WHILE_EXP0
+push local 0
+push constant 81
+eq
+not
+not
+if-goto WHILE_END0
+push constant 0
+pop local 2
+label WHILE_EXP1
+push local 2
+push this 9
+lt
+not
+if-goto WHILE_END1
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+push constant 191
+push constant 2
+push local 2
+call Math.multiply 2
+sub
+call JumpingFrogGame.draw_smiley 2
+pop temp 0
+push local 2
+push constant 1
+add
+pop local 2
+goto WHILE_EXP1
+label WHILE_END1
+push local 0
+push constant 32
+eq
+push local 1
+push constant 32
+eq
+not
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 8
+push constant 1
+add
+pop this 8
+push this 0
+call JumpingFrog.moveUp 1
+pop temp 0
+goto IF_END0
+label IF_FALSE0
+push pointer 0
+call JumpingFrogGame.updateFrogFallState 1
+pop temp 0
+push pointer 0
+call JumpingFrogGame.updateFrogLeapState 1
+pop temp 0
+label IF_END0
+push pointer 0
+call JumpingFrogGame.findCollision 1
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 9
+push constant 1
+eq
+not
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push pointer 0
+push constant 525
+push this 9
+push constant 31
+call Math.multiply 2
+sub
+push constant 4
+call JumpingFrogGame.erase 3
+pop temp 0
+push constant 1000
+call Sys.wait 1
+pop temp 0
+push this 9
+push constant 1
+sub
+pop this 9
+goto IF_END2
+label IF_FALSE2
+push pointer 0
+call JumpingFrogGame.displayScore 1
+pop temp 0
+push constant 3000
+call Sys.wait 1
+pop temp 0
+push pointer 0
+call JumpingFrogGame.initializeGameState 1
+pop temp 0
+push pointer 0
+call JumpingFrogGame.waitForGameToStart 1
+pop temp 0
+label IF_END2
+label IF_FALSE1
+push pointer 0
+call JumpingFrogGame.draw 1
+pop temp 0
+push local 0
+pop local 1
+call Keyboard.keyPressed 0
+pop local 0
+push constant 10
+call Sys.wait 1
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function JumpingFrogGame.waitForGameToStart 1
+push argument 0
+pop pointer 0
+call Keyboard.keyPressed 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+if-goto WHILE_END0
+push constant 10
+call Sys.wait 1
+pop temp 0
+call Keyboard.keyPressed 0
+pop local 0
+push this 0
+call JumpingFrog.draw 1
+pop temp 0
+push pointer 0
+call JumpingFrogGame.updateFrogLeapState 1
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function JumpingFrogGame.initializeGameState 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+push constant 3
+pop this 9
+push pointer 0
+call JumpingFrogGame.whiteout 1
+pop temp 0
+push pointer 0
+call JumpingFrogGame.displayInstructions 1
+pop temp 0
+push this 3
+call JumpingFrog.new 1
+pop this 0
+label WHILE_EXP0
+push local 1
+push this 5
+lt
+not
+if-goto WHILE_END0
+push local 1
+push this 4
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+call Pipe.dispose 1
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+pop this 5
+push constant 0
+pop this 10
+push constant 1
+pop this 1
+push constant 1
+pop this 2
+push this 6
+pop this 7
+push constant 0
+return
+function JumpingFrogGame.whiteout 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push constant 0
+push constant 0
+push constant 511
+push constant 255
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function JumpingFrogGame.displayScore 1
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push pointer 0
+call JumpingFrogGame.calculateScore 1
+pop local 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push constant 140
+push constant 80
+push constant 360
+push constant 190
+call Screen.drawRectangle 4
+pop temp 0
+push constant 11
+push constant 23
+call Output.moveCursor 2
+pop temp 0
+push constant 15
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 12
+push constant 23
+call Output.moveCursor 2
+pop temp 0
+push constant 14
+call String.new 1
+push constant 121
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push local 0
+call Output.printInt 1
+pop temp 0
+push constant 0
+return
+function JumpingFrogGame.updateFrogFallState 0
+push argument 0
+pop pointer 0
+push this 2
+push constant 5
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+call JumpingFrog.moveDown 1
+pop temp 0
+push constant 1
+pop this 2
+goto IF_END0
+label IF_FALSE0
+push this 2
+push constant 1
+add
+pop this 2
+label IF_END0
+push constant 0
+return
+function JumpingFrogGame.updateFrogLeapState 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 5
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+call JumpingFrog.cycleLeapsState 1
+pop temp 0
+push constant 1
+pop this 1
+goto IF_END0
+label IF_FALSE0
+push this 1
+push constant 1
+add
+pop this 1
+label IF_END0
+push constant 0
+return
+function JumpingFrogGame.draw 1
+push argument 0
+pop pointer 0
+push pointer 0
+call JumpingFrogGame.shiftPipesLeft 1
+pop temp 0
+push pointer 0
+call JumpingFrogGame.disposeUnseenPipe 1
+pop temp 0
+push pointer 0
+call JumpingFrogGame.createNewPipe 1
+pop temp 0
+push this 0
+call JumpingFrog.draw 1
+pop temp 0
+push constant 0
+return
+function JumpingFrogGame.shiftPipesLeft 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 1
+push this 5
+lt
+not
+if-goto WHILE_END0
+push local 1
+push this 4
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+call Pipe.draw 1
+pop temp 0
+push local 0
+call Pipe.moveLeft 1
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function JumpingFrogGame.disposeUnseenPipe 2
+push argument 0
+pop pointer 0
+push this 5
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push constant 0
+push this 4
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+call Pipe.getWidthCurrent 1
+push constant 1
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 1
+call Pipe.dispose 1
+pop temp 0
+push this 5
+push constant 1
+sub
+pop this 5
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push this 5
+lt
+not
+if-goto WHILE_END0
+push local 0
+push this 4
+add
+push local 0
+push constant 1
+add
+push this 4
+add
+pop pointer 1
+push that 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+label IF_FALSE1
+push constant 0
+return
+function JumpingFrogGame.createNewPipe 1
+push argument 0
+pop pointer 0
+push this 7
+push this 6
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 5
+push this 4
+add
+push this 8
+call Pipe.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 5
+push constant 1
+add
+pop this 5
+push this 10
+push constant 1
+add
+pop this 10
+push constant 0
+pop this 7
+goto IF_END0
+label IF_FALSE0
+push constant 0
+push this 4
+add
+pop pointer 1
+push that 0
+pop local 0
+push this 7
+push local 0
+call Pipe.getWidthIncrement 1
+add
+pop this 7
+label IF_END0
+push constant 0
+return
+function JumpingFrogGame.calculateScore 3
+push argument 0
+pop pointer 0
+push this 10
+pop local 2
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 1
+push this 5
+lt
+not
+if-goto WHILE_END0
+push local 1
+push this 4
+add
+pop pointer 1
+push that 0
+pop local 0
+push this 0
+call JumpingFrog.getXOffset 1
+push local 0
+call Pipe.getXOffset 1
+push local 0
+call Pipe.getWidthCurrent 1
+add
+push constant 1
+add
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 2
+push constant 1
+sub
+pop local 2
+label IF_FALSE0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push local 2
+push constant 2
+sub
+return
+function JumpingFrogGame.findCollision 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 1
+push this 5
+lt
+not
+if-goto WHILE_END0
+push local 1
+push this 4
+add
+pop pointer 1
+push that 0
+pop local 0
+push pointer 0
+push local 0
+call JumpingFrogGame.collides 2
+push this 11
+push local 0
+eq
+not
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+pop this 11
+push constant 0
+not
+return
+label IF_FALSE0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function JumpingFrogGame.collides 0
+push argument 0
+pop pointer 0
+push argument 1
+call Pipe.getXOffset 1
+push this 0
+call JumpingFrog.getXOffset 1
+push this 0
+call JumpingFrog.getSizeX 1
+add
+push constant 1
+add
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push argument 1
+call Pipe.getXOffset 1
+push argument 1
+call Pipe.getWidthCurrent 1
+add
+push this 0
+call JumpingFrog.getXOffset 1
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+return
+label IF_FALSE1
+push argument 1
+call Pipe.getGapTop 1
+push this 0
+call JumpingFrog.getYOffset 1
+gt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+not
+return
+label IF_FALSE2
+push argument 1
+call Pipe.getGapBottom 1
+push this 0
+call JumpingFrog.getYOffset 1
+push this 0
+call JumpingFrog.getSizeY 1
+add
+lt
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+not
+return
+label IF_FALSE3
+push constant 0
+return
+function JumpingFrogGame.dispose 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 1
+push this 5
+lt
+not
+if-goto WHILE_END0
+push local 1
+push this 4
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+call Pipe.dispose 1
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push this 0
+call JumpingFrog.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function JumpingFrogGame.draw_smiley 0
+push argument 0
+pop pointer 0
+push constant 16384
+push argument 1
+add
+pop this 12
+push this 12
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 32
+add
+push constant 4080
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 64
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 96
+add
+push constant 8196
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 128
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 160
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 192
+add
+push constant 30703
+neg
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 224
+add
+push constant 30703
+neg
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 256
+add
+push constant 30703
+neg
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 288
+add
+push constant 30319
+neg
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 320
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 352
+add
+push constant 31711
+neg
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 384
+add
+push constant 16962
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 416
+add
+push constant 8580
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 448
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push this 12
+push constant 480
+add
+push constant 4080
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
